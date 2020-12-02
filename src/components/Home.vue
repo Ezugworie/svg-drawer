@@ -26,9 +26,7 @@
           class="block appearance-none text-gray-600 w-full font-normal bg-white border border-gray-400 px-3 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:border-green-300 transition duration-150"
         >
           <option disabled selected value="">Pick a shape</option>
-          <option v-for="shape in shapes" :value="shape.name" :key="shape.id">{{
-            shape.name
-          }}</option>
+          <option v-for="shape in shapes" :value="shape.name" :key="shape.id">{{ shape.name }}</option>
         </select>
         <div
           class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 pt-6 text-gray-700"
@@ -48,8 +46,8 @@
         <h4
           for="size"
           class="block font-thin leading-5 mb-2 text-gray-700"
-          >Length</h4
-        >
+          >Length
+        </h4>
         <input
           id="size"
           class="form-input block w-full py-2 px-3 font-medium text-gray-600 border border-gray-400 shadow rounded shadow-sm focus:outline-none focus:border-green-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5"
@@ -71,11 +69,21 @@
       </button>
     </div>
   </div>
+  <div class="w-full p-4 h-64">
+    <div class="w-full border rounded p-2 h-64">
+
+    </div>
+  </div>
 </template>
 
 <script>
 import { defineComponent, reactive, ref } from 'vue';
 import { useShapes } from '../shapes';
+// import { useMachine } from "@xstate/vue";
+import { Machine, assign, createMachine } from "xstate";
+
+
+// export type State = 'init' | 'view' | 'purchased'
 
 export default defineComponent({
   name: 'Home',
@@ -83,6 +91,34 @@ export default defineComponent({
     const selectShape = ref('');
     const { defineShapes } = useShapes();
     const shapes = reactive(defineShapes);
+
+    const stateMachine = Machine({
+      initial: 'idle',
+      states: {
+        idle: {
+          on: {
+            SUBMIT: 'loading',
+          }
+        },
+        drawing: {
+          on: {
+            DRAWING_SUCCESS : 'success',
+            DRAWING_FAILED : 'error',
+          }
+        },
+        saving: {
+          on: {
+            SAVING_SUCCESS: 'success',
+            SAVING_FAILED: 'error',
+          }
+        },
+        success: {
+          type: 'final',
+        }
+        
+      }
+
+    })
 
     return { shapes, selectShape };
   },

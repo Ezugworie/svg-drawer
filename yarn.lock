@@ -2301,6 +2301,11 @@ vite@^1.0.0-rc.8:
     vue "^3.0.2"
     ws "^7.3.1"
 
+vivus@^0.4.5:
+  version "0.4.5"
+  resolved "https://registry.yarnpkg.com/vivus/-/vivus-0.4.5.tgz#61d18c2ac8f48cab5d250fc3df1badfcb32d669a"
+  integrity sha512-dBM5QDcO0JUnoeGUROhMYVBW4Qry637iQ1o6vLDaEVzu0TAQ3tVlzeQlLGYPjegCxcY1nC8FtyTjsZ8rqXVL4Q==
+
 vue-router@^4.0.0-beta.13:
   version "4.0.0-rc.1"
   resolved "https://registry.yarnpkg.com/vue-router/-/vue-router-4.0.0-rc.1.tgz#42f41315849163a1243886c9aa6d7c14f24fd003"
@@ -2338,6 +2343,11 @@ ws@^7.3.1:
   version "7.3.1"
   resolved "https://registry.yarnpkg.com/ws/-/ws-7.3.1.tgz#d0547bf67f7ce4f12a72dfe31262c68d7dc551c8"
   integrity sha512-D3RuNkynyHmEJIpD2qrgVkc9DQ23OrN/moAwZX4L8DfvszsJxpjQuUq3LMx6HoYji9fbIOBY18XWBsAux1ZZUA==
+
+xstate@^4.14.0:
+  version "4.14.0"
+  resolved "https://registry.yarnpkg.com/xstate/-/xstate-4.14.0.tgz#dd9f3f0af4acd04a01b3ad60d3d4c66c51ac1b5d"
+  integrity sha512-nz+T5rlPl0Vu1L9NZdI7JYVq57k/pKpyLwmztqgcj/HqUVsopnMKBP6cQJCb4Op9TC8kffyJSMwHDFthuRpooQ==
 
 xtend@^4.0.2:
   version "4.0.2"
