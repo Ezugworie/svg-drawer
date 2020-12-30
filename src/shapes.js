@@ -5,7 +5,7 @@ export const useShapes = (() => {
     const defineShapes = reactive([
         { id: '1', name: 'Circle' },
         { id: '2', name: 'Square' },
-        { id: '3', name: 'Traingle' },
+        { id: '3', name: 'Triangle' },
         { id: '4', name: 'Rectangle' },
         // { id: '5', name: 'Pentagon' },
         // { id: '6', name: 'Hexagon' },
