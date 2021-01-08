@@ -1,7 +1,9 @@
-import { reactive } from 'vue'
+import { reactive, ref } from 'vue'
 
 export const useShapes = (() => {
-
+  let loading = ref(false)
+  let shapeId = ref(0)
+  const drawnShapes = reactive([])
     const defineShapes = reactive([
         { id: '1', name: 'Circle' },
         { id: '2', name: 'Square' },
@@ -18,5 +20,41 @@ export const useShapes = (() => {
         // { id: '13', name: 'Cube' },
     ])
 
-    return { defineShapes }
-})
+    const drawShape = ((selectedShape, length, id) => {
+      console.log("selectedShape is "+ selectedShape.value)
+      console.log(`Drawing ${selectedShape.value} with ${length}...`)
+        loading.value = true
+        if (selectedShape.value === 'Circle') {
+          return drawCircle(length)
+        } else if (selectedShape === 'Square') {
+          // drawSqaure(length)
+        } else {
+          return
+        }
+    })
+    
+    const drawCircle = ((radius) => {
+      shapeId.value++
+      let cy = parseInt(radius) + 10
+      let dim = cy * 2
+      const circle =
+        { value:
+            `<svg height="${dim}" width="${dim}">
+            <circle cx="${cy}" cy="${cy}" r="${radius}" stroke="green" stroke-width="2" fill="none" />
+            </svg>`,
+          id: shapeId.value
+        }
+        drawnShapes.push(circle)
+      console.log("SHAPE returned!! "+drawnShapes)
+      return drawnShapes
+    })
+    
+    return { 
+      defineShapes, 
+      drawShape, 
+      drawCircle, 
+      loading, 
+      drawnShapes 
+    }
+  })
+  

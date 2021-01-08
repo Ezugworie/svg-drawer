@@ -1,6 +1,4 @@
-import Circle from './Circle.vue'
-import Square from './Square.vue'
-import Rectangle from './Rectangle.vue'
-import Triangle from './Triangle.vue'
+import Select from './Select.vue'
+import Input from './Input.vue'
 
-export { Circle, Square, Rectangle, Triangle}
+export { Select, Input}

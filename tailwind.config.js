@@ -5,7 +5,11 @@ module.exports = {
   },
   purge: [],
   theme: {
-    extend: {},
+    extend: {
+      zIndex: {
+        '-10': '-10',
+       }
+    },
     rotate: {
       '-135': '-135deg',
     }
